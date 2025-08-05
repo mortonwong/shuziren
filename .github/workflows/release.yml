@@ -33,10 +33,7 @@ jobs:
             ${{ runner.os }}-electron-
       
       - name: Install dependencies
-        run: |
-          npm config set registry https://registry.npmmirror.com
-          npm config set electron_mirror https://cdn.npmmirror.com/binaries/electron/
-          npm ci
+        run: npm ci
       
       - name: Build and publish Windows app
         run: npm run build:win
@@ -63,7 +60,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21'
+          node-version: '20'
           cache: 'npm'
       
       - name: Install dependencies
@@ -93,7 +90,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '21'
+          node-version: '20'
           cache: 'npm'
       
       - name: Install dependencies

@@ -79,10 +79,7 @@ jobs:
             ${{ runner.os }}-electron-
       
       - name: Install dependencies
-        run: |
-          npm config set registry https://registry.npmmirror.com
-          npm config set electron_mirror https://cdn.npmmirror.com/binaries/electron/
-          npm ci
+        run: npm ci
       
       - name: Build macOS app
         run: npm run build:mac
@@ -123,10 +120,7 @@ jobs:
             ${{ runner.os }}-electron-
       
       - name: Install dependencies
-        run: |
-          npm config set registry https://registry.npmmirror.com
-          npm config set electron_mirror https://cdn.npmmirror.com/binaries/electron/
-          npm ci
+        run: npm ci
       
       - name: Build Linux app
         run: npm run build:linux

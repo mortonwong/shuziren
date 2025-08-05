@@ -118,6 +118,7 @@ export default defineConfig(({command}) => {
                             minify: minify,
                             outDir: 'dist-electron/preload',
                             lib: {
+                                entry: 'electron/preload/index.ts',
                                 formats: ['cjs'],
                                 fileName: 'index',
                             },
@@ -150,12 +151,33 @@ export default defineConfig(({command}) => {
                 }
             }
         },
-        server: process.env.VSCODE_DEBUG && (() => {
-            const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
-            return {
-                host: url.hostname,
-                port: +url.port,
+        server: {
+            ...(process.env.VSCODE_DEBUG && (() => {
+                const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
+                return {
+                    host: url.hostname,
+                    port: +url.port,
+                }
+            })()),
+            proxy: {
+                '/api': {
+                    target: 'https://api.paojiaoyun.com',
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/api/, ''),
+                    secure: true,
+                    configure: (proxy, _options) => {
+                        proxy.on('error', (err, _req, _res) => {
+                            console.log('proxy error', err);
+                        });
+                        proxy.on('proxyReq', (proxyReq, req, _res) => {
+                            console.log('Sending Request to the Target:', req.method, req.url);
+                        });
+                        proxy.on('proxyRes', (proxyRes, req, _res) => {
+                            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+                        });
+                    },
+                }
             }
-        })(),
+        },
     }
 })

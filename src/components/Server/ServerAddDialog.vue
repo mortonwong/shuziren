@@ -186,7 +186,7 @@ const doSelectLocalDir = async () => {
 }
 
 const doSelectCloud = async () => {
-    Dialog.tipError(t('请升级Pro版使用'))
+    // Dialog.tipError(t('请升级Pro版使用'))
 }
 defineExpose({
     show,
@@ -228,6 +228,7 @@ const emit = defineEmits({
                                 config.json
                             </a-button>
                             <a href="https://aigcpanel.com/zh/asset" target="_blank"
+                               v-if="0"
                                class="arco-btn arco-btn-secondary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal block w-full text-center py-1">
                                 <icon-cloud/>
                                 {{ t('模型市场') }}

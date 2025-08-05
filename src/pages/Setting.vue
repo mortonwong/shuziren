@@ -53,9 +53,9 @@ onBeforeUnmount(() => {
                     {{ t('环境设置') }}
                 </div>
             </div>
-            <div data-section="about" class="p-2 rounded-lg mr-2 mb-4 cursor-pointer">
+            <div data-section="about" class="p-2 rounded-lg mr-2 mb-4 cursor-pointer" v-if="0">
                 <div class="text-base">
-                    <icon-user/>
+                    <icon-info-circle/>
                     {{ t('关于软件') }}
                 </div>
             </div>
@@ -77,8 +77,8 @@ onBeforeUnmount(() => {
                         <SettingEnv/>
                     </div>
                 </div>
-                <div class="border-b border-solid border-gray-200 my-6 dark:border-gray-700"></div>
-                <div data-section="about" class="scroll-mt-4">
+                <div class="border-b border-solid border-gray-200 my-6 dark:border-gray-700" v-if="0"></div>
+                <div data-section="about" class="scroll-mt-4" v-if="0">
                     <div class="text-base font-bold mb-4">
                         {{ t('关于软件') }}
                     </div>

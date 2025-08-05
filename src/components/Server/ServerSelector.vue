@@ -60,7 +60,7 @@ watch(() => select.value?.modelValue, async (value) => {
                 </div>
             </a-option>
         </a-optgroup>
-        <a-optgroup :label="$t('升级Pro版，畅享云模型')"></a-optgroup>
+        <a-optgroup v-if="0" :label="$t('升级Pro版，畅享云模型')"></a-optgroup>
         <template #label="{ data }">
             <div class="text-sm flex items-center flex-nowrap truncate no-wrap">
                 <div v-if="valueStatus===EnumServerStatus.RUNNING"

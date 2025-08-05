@@ -4,7 +4,7 @@ import {TimeUtil} from "../electron/lib/util";
 const BASE_URL = 'https://aigcpanel.com';
 
 export const AppConfig = {
-    name: 'AIGCPanel',
+    name: '炫动数字人',
     slogan: '一站式AI数字人系统',
     version: packageJson.version,
     website: `${BASE_URL}`,

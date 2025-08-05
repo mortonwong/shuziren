@@ -179,6 +179,21 @@ async function createWindow() {
 
 app.whenReady()
     .then(() => {
+        // 设置CORS绕过 - 更安全的方法
+        session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+            const responseHeaders = details.responseHeaders || {}
+            
+            // 添加CORS头
+            responseHeaders['Access-Control-Allow-Origin'] = ['*']
+            responseHeaders['Access-Control-Allow-Methods'] = ['GET, POST, PUT, DELETE, OPTIONS']
+            responseHeaders['Access-Control-Allow-Headers'] = ['Content-Type, Authorization, X-Requested-With']
+            responseHeaders['Access-Control-Allow-Credentials'] = ['true']
+            
+            callback({
+                responseHeaders
+            })
+        })
+        
         session.defaultSession.setDisplayMediaRequestHandler((request, callback) => {
             desktopCapturer.getSources({types: ['screen']}).then((sources) => {
                 // Grant access to the first screen found.

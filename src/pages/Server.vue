@@ -49,6 +49,7 @@ const typeName = (type: string) => {
             </div>
             <div class="flex items-center">
                 <a-button class="ml-1"
+                          v-if="0"
                           @click="modelSettingDialog?.show()">
                     <template #icon>
                         <icon-command/>
@@ -98,7 +99,7 @@ const typeName = (type: string) => {
                     <div class="inline-block bg-gray-100 text-left rounded-lg p-6 leading-8">
                         <div>① {{ $t('访问模型市场，下载模型到本地') }}</div>
                         <div>② {{ $t('解压模型压缩包，选择目录中的config.json文件') }}</div>
-                        <div class="pt-3">
+                        <div class="pt-3" v-if="0">
                             {{ $t('更多内容，请查看') }}
                             <a href="javascript:;" class="text-link" @click="doHelp">
                                 <icon-book/>

@@ -39,9 +39,9 @@ onMounted(async () => {
     <div class="page-narrow-container p-6 pb-home h-full overflow-hidden">
         <div class="flex">
             <div class="text-3xl font-bold mb-5 flex-grow">
-                {{ $t('欢迎使用 AIGCPanel !') }}
+                {{ $t('欢迎使用 炫动数字人 !') }}
             </div>
-            <div>
+            <div v-if="0">
                 <a target="_blank" class="text-red-500"
                    href="https://aigcpanel.com/forum">
                     <icon-message class="mr-1"/>
@@ -84,7 +84,7 @@ onMounted(async () => {
                         </a-button>
                     </div>
                 </div>
-                <div class="flex-grow w-0 bg-white rounded-lg p-3 bg-contain bg-right bg-no-repeat">
+                <div class="flex-grow w-0 bg-white rounded-lg p-3 bg-contain bg-right bg-no-repeat" v-if="0">
                     <div class="font-bold text-xl mb-3">{{ $t('数字人直播') }}</div>
                     <div class="h-10 truncate overflow-hidden">
                         {{ $t('互动交流支持各大平台') }}
@@ -171,7 +171,7 @@ onMounted(async () => {
                 </div>
             </div>
         </div>
-        <div>
+        <div v-if="0">
             <div class="flex gap-5">
                 <a href="https://aigcpanel.com/zh/asset" target="_blank"
                    class="bg-white rounded-lg p-3 flex items-center flex-grow w-0">

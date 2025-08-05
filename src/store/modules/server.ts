@@ -81,9 +81,9 @@ const createEventChannel = (server: ServerRecord, serverRuntime?: ServerRuntime)
                 switch (data.type) {
                     case 'LoginRequired':
                     case 'VipRequired':
-                        Dialog.alertError(t('请升级Pro版使用该功能')).then(() => {
-                            window.$mapi.app.openExternalWeb(AppConfig.website).then()
-                        })
+                        // Dialog.alertError(t('请升级Pro版使用该功能')).then(() => {
+                        //     window.$mapi.app.openExternalWeb(AppConfig.website).then()
+                        // })
                         break
                 }
                 break;
